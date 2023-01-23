@@ -1,0 +1,24 @@
+language: c
+
+addons:
+  apt:
+    packages:
+      - libdb-dev
+      - libgmp3-dev
+      - libncurses5-dev
+
+before_install:
+  - sudo make -C cobol-build install-gnucobol
+
+install:
+  - make build
+
+script:
+  - make test
+
+cache:
+  directories:
+    - cobol-build/gnucobol3/latest
+
+git:
+  depth: false
